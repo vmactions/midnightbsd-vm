@@ -29,7 +29,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", ""]
+        release: [ "2.2.8", "3.2.4", "4.0.4"
+
+, ""]
         arch: [ "aarch64", "", "riscv64"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
@@ -92,7 +94,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -161,7 +163,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", ""]
+        release: [ "2.2.8", "3.2.4", "4.0.4"
+
+, ""]
         arch: [ "aarch64", "", "riscv64"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
@@ -223,7 +227,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -293,7 +297,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", ""]
+        release: [ "2.2.8", "3.2.4", "4.0.4"
+
+, ""]
         arch: [ "aarch64", "", "riscv64"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
@@ -350,7 +356,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -411,7 +417,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", ""]
+        release: [ "2.2.8", "3.2.4", "4.0.4"
+
+, ""]
         arch: [ "aarch64", "", "riscv64"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         disableCache: [ "", "true"]
@@ -467,7 +475,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -531,7 +539,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", ""]
+        release: [ "2.2.8", "3.2.4", "4.0.4"
+
+, ""]
         arch: [ "aarch64", "", "riscv64"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
@@ -586,7 +596,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -654,7 +664,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         usesh: true
         debug: true
@@ -682,7 +692,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@b7d9c088e7146f377573fab72d1e0ece0917b7eb
+      uses: vmactions/midnightbsd-vm@297a80477550fdf5137734419e635287bf0383ca
       with:
         usesh: true
         debug: true
