@@ -46,7 +46,7 @@ jobs:
         envs: 'MYTOKEN MYTOKEN2'
         usesh: true
         prepare: |
-          mport install curl
+          mport install curl || true
 
         run: |
           pwd
