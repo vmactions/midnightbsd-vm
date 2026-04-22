@@ -41,7 +41,7 @@ jobs:
     - uses: actions/checkout@v6
     - name: Test in MidnightBSD
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         envs: 'MYTOKEN MYTOKEN2'
         usesh: true
@@ -65,7 +65,7 @@ jobs:
 ```
 
 
-The latest major version is: `v0`, which is the most recommended to use. (You can also use the latest full version: `v0.0.0`)  
+The latest major version is: `v1`, which is the most recommended to use. (You can also use the latest full version: `v1.0.0`)  
 
 
 If you are migrating from the previous `v0`, please change the `runs-on: ` to `runs-on: ubuntu-latest`
@@ -100,7 +100,7 @@ The code is shared from the host to the VM via `rsync` by default, you can choos
 
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         sync: sshfs  # or: nfs
 
@@ -122,7 +122,7 @@ When using `rsync` or `scp`,  you can define `copyback: false` to not copy files
 
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         sync: rsync
         copyback: false
@@ -145,7 +145,7 @@ You can add NAT port between the host and the VM.
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         nat: |
           "8080": "80"
@@ -164,7 +164,7 @@ The default memory of the VM is 6144MB, you can use `mem` option to set the memo
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         mem: 4096
 ...
@@ -178,7 +178,7 @@ The VM is using all the cpu cores of the host by default, you can use `cpu` opti
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         cpu: 3
 ...
@@ -193,7 +193,7 @@ It uses [the MidnightBSD 4.0.4](conf/default.release.conf) by default, you can u
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         release: "4.0.4"
 ...
@@ -208,7 +208,7 @@ The vm is using x86_64(AMD64) by default, but you can use `arch` option to chang
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         arch: aarch64
 ...
@@ -230,7 +230,7 @@ Support custom shell:
     - uses: actions/checkout@v6
     - name: Start VM
       id: vm
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         sync: nfs
     - name: Custom shell step 1
@@ -256,7 +256,7 @@ You can also use `custom-shell-name` to set a custom name for the shell wrapper:
     - uses: actions/checkout@v6
     - name: Start VM
       id: vm
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         sync: nfs
         custom-shell-name: vmsh
@@ -282,7 +282,7 @@ If the time in VM is not correct, You can use `sync-time` option to synchronize 
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         sync-time: true
 ...
@@ -297,7 +297,7 @@ By default, the action caches `apt` packages on the host and VM images/artifacts
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         disable-cache: true
 ...
@@ -318,7 +318,7 @@ Then use it in the workflow:
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
 
@@ -331,7 +331,7 @@ You can also set the `vnc-password` parameter to set a custom password to protec
 ...
     - name: Test
       id: test
-      uses: vmactions/midnightbsd-vm@v0
+      uses: vmactions/midnightbsd-vm@v1
       with:
         debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         vnc-password: ${{ secrets.VNC_PASSWORD }}
