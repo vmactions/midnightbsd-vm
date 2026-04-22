@@ -1,0 +1,8 @@
+          pwd
+          ls -lah
+          whoami
+          env
+          uname -a
+          sysctl hw.ncpu
+          sysctl hw.physmem
+          sysctl hw.usermem
