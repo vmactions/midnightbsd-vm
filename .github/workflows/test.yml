@@ -94,11 +94,11 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
-          mport install -y curl
+          mport install curl
         mem: 4096
         release: ${{ matrix.release }}
         arch: ${{ matrix.arch }}
@@ -227,11 +227,11 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
-          mport install -y curl
+          mport install curl
         mem: 4096
         release: ${{ matrix.release }}
         arch: ${{ matrix.arch }}
@@ -356,11 +356,11 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
-          mport install -y curl
+          mport install curl
         mem: 4096
         release: ${{ matrix.release }}
         arch: ${{ matrix.arch }}
@@ -475,11 +475,11 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
-          mport install -y curl
+          mport install curl
         mem: 4096
         release: ${{ matrix.release }}
         arch: ${{ matrix.arch }}
@@ -596,11 +596,11 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
-          mport install -y curl
+          mport install curl
         mem: 4096
         release: ${{ matrix.release }}
         arch: ${{ matrix.arch }}
@@ -664,7 +664,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         usesh: true
         debug: true
@@ -692,7 +692,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@45f034922804f85465d18cff045bb1b7c0a15c3c
+      uses: vmactions/midnightbsd-vm@a78877b232917153802bf5e23c507bdbd9351b40
       with:
         usesh: true
         debug: true
