@@ -1,4 +1,9 @@
-# Run GitHub CI in MidnightBSD ![Test](https://github.com/vmactions/midnightbsd-vm/workflows/Test/badge.svg)
+# Run GitHub CI in MidnightBSD 
+
+![Test](https://github.com/vmactions/midnightbsd-vm/workflows/Test/badge.svg)
+[![Release](https://img.shields.io/github/v/release/vmactions/midnightbsd-vm?include_prereleases&sort=semver&display_name=tag)](https://github.com/vmactions/midnightbsd-vm/releases)
+
+
 
 See all the supported VMs: [VMActions.org](https://vmactions.org)
 
