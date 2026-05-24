@@ -95,7 +95,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -110,6 +110,7 @@ jobs:
           udp:"8081": "80"
         usesh: true
         debug: true
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         sync: sshfs
         run: |
           set -e
@@ -223,7 +224,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -238,6 +239,7 @@ jobs:
           udp:"8081": "80"
         usesh: true
         debug: true
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         sync: nfs
         run: |
           ls -lah $HOME/work
@@ -352,7 +354,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -367,6 +369,7 @@ jobs:
           udp:"8081": "80"
         usesh: true
         debug: true
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         sync: scp
         run: |
           ls -lah $HOME/work
@@ -472,7 +475,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -487,6 +490,7 @@ jobs:
           udp:"8081": "80"
         usesh: true
         debug: true
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         disable-cache: ${{ matrix.disableCache }}
         run: |
           env
@@ -594,7 +598,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -609,6 +613,7 @@ jobs:
           udp:"8081": "80"
         usesh: true
         debug: true
+        debug-on-error: ${{ vars.DEBUG_ON_ERROR }}
         custom-shell-name: vmsh
         run: |
           env
@@ -662,7 +667,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         usesh: true
         debug: true
@@ -690,7 +695,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@c5bea05308e2cb0a7d253575cc4975531adefb61
+      uses: vmactions/midnightbsd-vm@a6cd211b0faf95c652d45e64fa43867078e34e01
       with:
         usesh: true
         debug: true
