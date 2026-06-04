@@ -95,7 +95,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -224,7 +224,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -354,7 +354,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -475,7 +475,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -598,7 +598,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ steps.check.outputs.run == 'true' }}
       id: test
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -667,7 +667,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         usesh: true
         debug: true
@@ -695,7 +695,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true 
-      uses: vmactions/midnightbsd-vm@d54aa2af1b4d409d0f5e5d6f2112e62e0d03b9e4
+      uses: vmactions/midnightbsd-vm@83090f4fa72a2f4322d964b15b14c4bc80b91baf
       with:
         usesh: true
         debug: true
