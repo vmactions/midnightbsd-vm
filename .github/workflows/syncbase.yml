@@ -11,13 +11,13 @@ on:
       - 'conf/*'
       - '.github/workflows/syncbase.yml'
 
-
+    
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
+        with: 
           token: ${{ secrets.VM_TOKEN }}
 
       - name: Using main branch
@@ -45,4 +45,5 @@ jobs:
           git commit -m "Sync from base-builder"
           git pull --rebase --autostash
           git push
+
 
