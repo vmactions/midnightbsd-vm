@@ -71,7 +71,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -175,7 +175,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -287,7 +287,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -382,7 +382,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -481,7 +481,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -550,7 +550,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         usesh: true
         debug: true
@@ -578,7 +578,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@d0b03fab1c5ac7d26edbb3edfb2b86609eb6f970
+      uses: vmactions/midnightbsd-vm@612b27bcc1b098d2e9127e1eb9aed5e6aa4022e1
       with:
         usesh: true
         debug: true
