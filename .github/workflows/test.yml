@@ -154,7 +154,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -341,7 +341,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -536,7 +536,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -714,7 +714,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -896,7 +896,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -965,7 +965,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         usesh: true
         debug: true
@@ -993,7 +993,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@6d22c4d98d6ef96836fc4be58da4229a67a14442
+      uses: vmactions/midnightbsd-vm@f2b0f1b5d1197dd9ff82dce9e5ba38bd07922c62
       with:
         usesh: true
         debug: true
