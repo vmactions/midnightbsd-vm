@@ -34,6 +34,18 @@
             arch: ppc64le
           - release: "4.0.4"
             arch: s390x
+          - release: "4.0.6"
+            arch: aarch64
+          - release: "4.0.6"
+            arch: riscv64
+          - release: "4.0.6"
+            arch: powerpc64
+          - release: "4.0.6"
+            arch: sparc64
+          - release: "4.0.6"
+            arch: ppc64le
+          - release: "4.0.6"
+            arch: s390x
           - release: ""
             arch: aarch64
           - release: ""
