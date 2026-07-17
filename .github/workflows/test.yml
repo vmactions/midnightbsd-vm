@@ -166,7 +166,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -386,7 +386,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -614,7 +614,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -844,7 +844,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1059,7 +1059,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1185,7 +1185,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         mem: 4096
         usesh: true
@@ -1249,7 +1249,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         mem: 4096
         usesh: true
@@ -1314,7 +1314,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         usesh: true
         debug: true
@@ -1342,7 +1342,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@8562e45ebdfbec770d17d55b71308d9129f25282
+      uses: vmactions/midnightbsd-vm@48209830aa500cdbe090b4a891c2021b79702d99
       with:
         usesh: true
         debug: true
