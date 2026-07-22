@@ -10,6 +10,8 @@
             arch: ppc64le
           - release: "2.2.8"
             arch: s390x
+          - release: "2.2.8"
+            arch: i386
           - release: "3.2.4"
             arch: aarch64
           - release: "3.2.4"
@@ -22,6 +24,8 @@
             arch: ppc64le
           - release: "3.2.4"
             arch: s390x
+          - release: "3.2.4"
+            arch: i386
           - release: "4.0.4"
             arch: aarch64
           - release: "4.0.4"
@@ -34,6 +38,8 @@
             arch: ppc64le
           - release: "4.0.4"
             arch: s390x
+          - release: "4.0.4"
+            arch: i386
           - release: "4.0.6"
             arch: aarch64
           - release: "4.0.6"
@@ -46,18 +52,8 @@
             arch: ppc64le
           - release: "4.0.6"
             arch: s390x
-          - release: ""
-            arch: aarch64
-          - release: ""
-            arch: riscv64
-          - release: ""
-            arch: powerpc64
-          - release: ""
-            arch: sparc64
-          - release: ""
-            arch: ppc64le
-          - release: ""
-            arch: s390x
+          - release: "4.0.6"
+            arch: i386
           - release: ""
             arch: aarch64
           - release: ""
@@ -71,6 +67,8 @@
           - release: ""
             arch: s390x
           - release: ""
+            arch: i386
+          - release: ""
             arch: aarch64
           - release: ""
             arch: riscv64
@@ -82,6 +80,22 @@
             arch: ppc64le
           - release: ""
             arch: s390x
+          - release: ""
+            arch: i386
+          - release: ""
+            arch: aarch64
+          - release: ""
+            arch: riscv64
+          - release: ""
+            arch: powerpc64
+          - release: ""
+            arch: sparc64
+          - release: ""
+            arch: ppc64le
+          - release: ""
+            arch: s390x
+          - release: ""
+            arch: i386
           - release: ""
             arch: aarch64
           - release: ""
@@ -94,3 +108,5 @@
             arch: ppc64le
           - release: ""
             arch: s390x
+          - release: ""
+            arch: i386
