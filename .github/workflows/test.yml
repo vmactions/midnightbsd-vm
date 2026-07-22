@@ -32,7 +32,7 @@ jobs:
 
 
 , ""]
-        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x"]
+        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
           - runs: "ubuntu-24.04-arm"
@@ -47,6 +47,8 @@ jobs:
             arch: "ppc64le"
           - runs: "ubuntu-24.04-arm"
             arch: "s390x"
+          - runs: "ubuntu-24.04-arm"
+            arch: "i386"
           # Manual matrix excludes only; combos with no conf are auto-excluded.
           - release: "2.2.8"
             arch: aarch64
@@ -260,7 +262,7 @@ jobs:
 
 
 , ""]
-        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x"]
+        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
           - runs: "ubuntu-24.04-arm"
@@ -275,6 +277,8 @@ jobs:
             arch: "ppc64le"
           - runs: "ubuntu-24.04-arm"
             arch: "s390x"
+          - runs: "ubuntu-24.04-arm"
+            arch: "i386"
           # Manual matrix excludes only; combos with no conf are auto-excluded.
           - release: "2.2.8"
             arch: aarch64
@@ -481,7 +485,7 @@ jobs:
 
 
 , ""]
-        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x"]
+        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
           - runs: "ubuntu-24.04-arm"
@@ -496,6 +500,8 @@ jobs:
             arch: "ppc64le"
           - runs: "ubuntu-24.04-arm"
             arch: "s390x"
+          - runs: "ubuntu-24.04-arm"
+            arch: "i386"
           # Manual matrix excludes only; combos with no conf are auto-excluded.
           - release: "2.2.8"
             arch: aarch64
@@ -717,7 +723,7 @@ jobs:
 
 
 , ""]
-        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x"]
+        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         disableCache: [ "", "true"]
         exclude:
@@ -733,6 +739,8 @@ jobs:
             arch: "ppc64le"
           - runs: "ubuntu-24.04-arm"
             arch: "s390x"
+          - runs: "ubuntu-24.04-arm"
+            arch: "i386"
           # Manual matrix excludes only; combos with no conf are auto-excluded.
           - release: "2.2.8"
             arch: aarch64
@@ -933,7 +941,7 @@ jobs:
 
 
 , ""]
-        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x"]
+        arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386"]
         runs: [ "ubuntu-24.04", "ubuntu-24.04-arm"]
         exclude:
           - runs: "ubuntu-24.04-arm"
@@ -948,6 +956,8 @@ jobs:
             arch: "ppc64le"
           - runs: "ubuntu-24.04-arm"
             arch: "s390x"
+          - runs: "ubuntu-24.04-arm"
+            arch: "i386"
           # Manual matrix excludes only; combos with no conf are auto-excluded.
           - release: "2.2.8"
             arch: aarch64
