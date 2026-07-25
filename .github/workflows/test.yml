@@ -186,7 +186,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -426,7 +426,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -674,7 +674,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -924,7 +924,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1159,7 +1159,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1285,7 +1285,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         mem: 4096
         usesh: true
@@ -1349,7 +1349,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         mem: 4096
         usesh: true
@@ -1414,7 +1414,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         usesh: true
         debug: true
@@ -1442,7 +1442,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@18ba501f9c4af267bc9493715e7f593f01e06465
+      uses: vmactions/midnightbsd-vm@3395820f2ac93797419014668d4d0f19875bcbc6
       with:
         usesh: true
         debug: true
