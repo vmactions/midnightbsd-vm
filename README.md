@@ -38,6 +38,7 @@ All the supported releases are here:
 
 | Release | x86_64 |
 |---------|---------|
+| 4.0.7 | ✅ (rsync,scp,sshfs,nfs) |
 | 4.0.6 | ✅ (rsync,scp,sshfs,nfs) |
 | 4.0.4 | ✅ (rsync,scp,sshfs,nfs) |
 | 3.2.4 | ✅ (rsync,scp,sshfs,nfs) |
@@ -225,6 +226,19 @@ It uses [the MidnightBSD 4.0.6](conf/default.release.conf) by default, you can u
 ...
 ```
 
+You can also give only the leading, `.` separated part of a release. The newest release that starts with it is used, so the workflow does not have to be edited for every point release:
+
+```yaml
+...
+    - name: Test
+      id: test
+      uses: vmactions/midnightbsd-vm@v1
+      with:
+        release: "4"
+...
+```
+
+Here `release: "4"` runs the newest `4.x` release of MidnightBSD. Every leading part works the same way, this action ships 2, 3, 4. Give more parts to narrow it down: `release: "4.0"` runs the newest `4.0.x`. Each part you give has to match in full, so a release that does not exist fails the job instead of quietly falling back to another one.
 
 ## 6. Select architecture
 
