@@ -38,11 +38,11 @@ All the supported releases are here:
 
 | Release | x86_64 |
 |---------|---------|
-| 4.0.7 | ✅ (rsync,scp,sshfs,nfs) |
-| 4.0.6 | ✅ (rsync,scp,sshfs,nfs) |
-| 4.0.4 | ✅ (rsync,scp,sshfs,nfs) |
-| 3.2.4 | ✅ (rsync,scp,sshfs,nfs) |
-| 2.2.8 | ✅ (rsync,scp,sshfs,nfs) |
+| 4.0.7 | ✅ (rsync,scp,sshfs,nfs,tar) |
+| 4.0.6 | ✅ (rsync,scp,sshfs,nfs,tar) |
+| 4.0.4 | ✅ (rsync,scp,sshfs,nfs,tar) |
+| 3.2.4 | ✅ (rsync,scp,sshfs,nfs,tar) |
+| 2.2.8 | ✅ (rsync,scp,sshfs,nfs,tar) |
 
 
 
@@ -112,7 +112,7 @@ All the `GITHUB_*` as well as `CI=true` env variables are passed into the VM.
 
 So, you will have the same directory and same default env variables when you `run` the CI script.
 
-The default shell in MidnightBSD is `tcsh`, if you want to use `sh` to execute the `run` script, please set `usesh` to `true`.
+The default login shell in MidnightBSD is `tcsh`.
 
 
 
