@@ -22,7 +22,21 @@ concurrency:
 
 
 jobs:
+  # The sync jobs are gated on two levels, and both are needed.
+  #
+  # Level 1 -- the VM_TEST_EXCLUDE_<METHOD> matrix excludes below (baked by
+  # generate.yml from the same per-arch map as the step `if:`s): drop the legs
+  # whose arch does not support this job's method, so they never spawn.
+  #
+  # Level 2 -- this job-level `if:`. When NO arch supports the method, level 1
+  # strips EVERY leg, and GitHub then runs the job ONCE with all matrix values
+  # empty instead of zero times (community discussion 179993, open and
+  # undocumented). That leftover leg would be one more green do-nothing job, so
+  # the repo-level gate turns it into a real skip. This is the string-grep form
+  # used by testtar/test9p, for the same reason it is used there: no method name
+  # is a substring of another method name or of any arch key in the map.
   testsshfs:
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'sshfs') }}
     strategy:
       fail-fast: false
       matrix:
@@ -180,7 +194,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -265,7 +279,9 @@ jobs:
 
 
 
+  # Two-level sync gating -- see the comment above testsshfs.
   testnfs:
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'nfs') }}
     strategy:
       fail-fast: false
       matrix:
@@ -415,7 +431,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -501,7 +517,9 @@ jobs:
 
 
 
+  # Two-level sync gating -- see the comment above testsshfs.
   testscp:
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'scp') }}
     strategy:
       fail-fast: false
       matrix:
@@ -658,7 +676,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -765,6 +783,10 @@ jobs:
   # run everywhere. A repo that defines neither still tests boot + push +
   # copyback.
   testtar:
+    # Repo-level gate, same expression the steps below already use. Without it
+    # the guests whose builder does not list tar still spawn this job and green
+    # it with every step skipped.
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'tar') }}
     runs-on: ubuntu-24.04
     name: tar MidnightBSD
     env:
@@ -787,7 +809,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'tar') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         mem: 4096
         debug: true
@@ -834,6 +856,9 @@ jobs:
   # body is per-repo data (VM_9P_RUN / VM_9P_VERIFY) because this guest speaks
   # rc, not POSIX sh.
   test9p:
+    # Repo-level gate -- see testtar. Only the 9p guests have this transport,
+    # so on every other repo this job was a green do-nothing.
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', '9p') }}
     runs-on: ubuntu-24.04
     name: 9p MidnightBSD
     env:
@@ -851,7 +876,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', '9p') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         mem: 4096
         debug: true
@@ -889,7 +914,11 @@ jobs:
 
 
 
+  # Two-level sync gating -- see the comment above testsshfs. This job and
+  # testcustomshell both exercise the default sync (rsync), so they share the
+  # rsync exclude file.
   test:
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'rsync') }}
     strategy:
       fail-fast: false
       matrix:
@@ -1040,7 +1069,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1120,7 +1149,9 @@ jobs:
 
 
 
+  # Two-level sync gating -- see the comment above testsshfs.
   testcustomshell:
+    if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'rsync') }}
     strategy:
       fail-fast: false
       matrix:
@@ -1270,7 +1301,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1395,7 +1426,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         mem: 4096
         debug: true
@@ -1458,7 +1489,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         mem: 4096
         debug: true
@@ -1537,7 +1568,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         debug: true
         # A command that EXISTS and fails, rather than `false` or a made-up
@@ -1583,7 +1614,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@363729e4e47e5ad25cbbaebaa4ec5aee8ffdee93
+      uses: vmactions/midnightbsd-vm@f945e594069385699a370e0828f51228adfeb14f
       with:
         debug: true
         # No `true` and no double quotes: this body runs on every guest, and
