@@ -1,6 +1,6 @@
 {
   "name": "vmactions-MidnightBSD",
-  "version": "",
+  "version": "1.0.5",
   "description": "GitHub actions for MidnightBSD",
   "type": "module",
   "main": "index.js",
