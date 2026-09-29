@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7"
+        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7", "4.0.8"
 , ""]
         arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386", "loongarch64", "armv7"]
         runs: [ "ubuntu-26.04", "ubuntu-26.04-arm"]
@@ -154,6 +154,24 @@ jobs:
             arch: loongarch64
           - release: "4.0.7"
             arch: armv7
+          - release: "4.0.8"
+            arch: aarch64
+          - release: "4.0.8"
+            arch: riscv64
+          - release: "4.0.8"
+            arch: powerpc64
+          - release: "4.0.8"
+            arch: sparc64
+          - release: "4.0.8"
+            arch: ppc64le
+          - release: "4.0.8"
+            arch: s390x
+          - release: "4.0.8"
+            arch: i386
+          - release: "4.0.8"
+            arch: loongarch64
+          - release: "4.0.8"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -194,7 +212,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -285,7 +303,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7"
+        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7", "4.0.8"
 , ""]
         arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386", "loongarch64", "armv7"]
         runs: [ "ubuntu-26.04", "ubuntu-26.04-arm"]
@@ -399,6 +417,24 @@ jobs:
             arch: loongarch64
           - release: "4.0.7"
             arch: armv7
+          - release: "4.0.8"
+            arch: aarch64
+          - release: "4.0.8"
+            arch: riscv64
+          - release: "4.0.8"
+            arch: powerpc64
+          - release: "4.0.8"
+            arch: sparc64
+          - release: "4.0.8"
+            arch: ppc64le
+          - release: "4.0.8"
+            arch: s390x
+          - release: "4.0.8"
+            arch: i386
+          - release: "4.0.8"
+            arch: loongarch64
+          - release: "4.0.8"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -431,7 +467,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -523,7 +559,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7"
+        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7", "4.0.8"
 , ""]
         arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386", "loongarch64", "armv7"]
         runs: [ "ubuntu-26.04", "ubuntu-26.04-arm"]
@@ -637,6 +673,24 @@ jobs:
             arch: loongarch64
           - release: "4.0.7"
             arch: armv7
+          - release: "4.0.8"
+            arch: aarch64
+          - release: "4.0.8"
+            arch: riscv64
+          - release: "4.0.8"
+            arch: powerpc64
+          - release: "4.0.8"
+            arch: sparc64
+          - release: "4.0.8"
+            arch: ppc64le
+          - release: "4.0.8"
+            arch: s390x
+          - release: "4.0.8"
+            arch: i386
+          - release: "4.0.8"
+            arch: loongarch64
+          - release: "4.0.8"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -676,7 +730,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -809,7 +863,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', 'tar') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         mem: 4096
         debug: true
@@ -876,7 +930,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}', '9p') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         mem: 4096
         debug: true
@@ -922,7 +976,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7"
+        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7", "4.0.8"
 , ""]
         arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386", "loongarch64", "armv7"]
         runs: [ "ubuntu-26.04", "ubuntu-26.04-arm"]
@@ -1037,6 +1091,24 @@ jobs:
             arch: loongarch64
           - release: "4.0.7"
             arch: armv7
+          - release: "4.0.8"
+            arch: aarch64
+          - release: "4.0.8"
+            arch: riscv64
+          - release: "4.0.8"
+            arch: powerpc64
+          - release: "4.0.8"
+            arch: sparc64
+          - release: "4.0.8"
+            arch: ppc64le
+          - release: "4.0.8"
+            arch: s390x
+          - release: "4.0.8"
+            arch: i386
+          - release: "4.0.8"
+            arch: loongarch64
+          - release: "4.0.8"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -1069,7 +1141,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1155,7 +1227,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7"
+        release: [ "2.2.8", "3.2.4", "4.0.4", "4.0.6", "4.0.7", "4.0.8"
 , ""]
         arch: [ "aarch64", "", "riscv64", "powerpc64", "sparc64", "ppc64le", "s390x", "i386", "loongarch64", "armv7"]
         runs: [ "ubuntu-26.04", "ubuntu-26.04-arm"]
@@ -1269,6 +1341,24 @@ jobs:
             arch: loongarch64
           - release: "4.0.7"
             arch: armv7
+          - release: "4.0.8"
+            arch: aarch64
+          - release: "4.0.8"
+            arch: riscv64
+          - release: "4.0.8"
+            arch: powerpc64
+          - release: "4.0.8"
+            arch: sparc64
+          - release: "4.0.8"
+            arch: ppc64le
+          - release: "4.0.8"
+            arch: s390x
+          - release: "4.0.8"
+            arch: i386
+          - release: "4.0.8"
+            arch: loongarch64
+          - release: "4.0.8"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -1301,7 +1391,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1426,7 +1516,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         mem: 4096
         debug: true
@@ -1489,7 +1579,7 @@ jobs:
     - name: Test in MidnightBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         mem: 4096
         debug: true
@@ -1568,7 +1658,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testerr
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         debug: true
         # A command that EXISTS and fails, rather than `false` or a made-up
@@ -1614,7 +1704,7 @@ jobs:
     - name: Test in MidnightBSD
       id: testpass
       continue-on-error: true
-      uses: vmactions/midnightbsd-vm@25cd8240c7bb074cb003a452620ff0ef577587f0
+      uses: vmactions/midnightbsd-vm@765cd52913c448f6112dcd44d0cc89f8c3d3c954
       with:
         debug: true
         # No `true` and no double quotes: this body runs on every guest, and
