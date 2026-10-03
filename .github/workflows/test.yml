@@ -177,24 +177,6 @@ jobs:
             arch: loongarch64
           - release: "4.0.8"
             arch: armv7
-          - release: ""
-            arch: aarch64
-          - release: ""
-            arch: riscv64
-          - release: ""
-            arch: powerpc64
-          - release: ""
-            arch: sparc64
-          - release: ""
-            arch: ppc64le
-          - release: ""
-            arch: s390x
-          - release: ""
-            arch: i386
-          - release: ""
-            arch: loongarch64
-          - release: ""
-            arch: armv7
 
 
     runs-on: ${{ matrix.runs }}
@@ -445,24 +427,6 @@ jobs:
             arch: loongarch64
           - release: "4.0.8"
             arch: armv7
-          - release: ""
-            arch: aarch64
-          - release: ""
-            arch: riscv64
-          - release: ""
-            arch: powerpc64
-          - release: ""
-            arch: sparc64
-          - release: ""
-            arch: ppc64le
-          - release: ""
-            arch: s390x
-          - release: ""
-            arch: i386
-          - release: ""
-            arch: loongarch64
-          - release: ""
-            arch: armv7
 
 
     runs-on: ${{ matrix.runs }}
@@ -705,24 +669,6 @@ jobs:
           - release: "4.0.8"
             arch: loongarch64
           - release: "4.0.8"
-            arch: armv7
-          - release: ""
-            arch: aarch64
-          - release: ""
-            arch: riscv64
-          - release: ""
-            arch: powerpc64
-          - release: ""
-            arch: sparc64
-          - release: ""
-            arch: ppc64le
-          - release: ""
-            arch: s390x
-          - release: ""
-            arch: i386
-          - release: ""
-            arch: loongarch64
-          - release: ""
             arch: armv7
 
 
@@ -1122,24 +1068,6 @@ jobs:
           - release: "4.0.8"
             arch: loongarch64
           - release: "4.0.8"
-            arch: armv7
-          - release: ""
-            arch: aarch64
-          - release: ""
-            arch: riscv64
-          - release: ""
-            arch: powerpc64
-          - release: ""
-            arch: sparc64
-          - release: ""
-            arch: ppc64le
-          - release: ""
-            arch: s390x
-          - release: ""
-            arch: i386
-          - release: ""
-            arch: loongarch64
-          - release: ""
             arch: armv7
 
 
