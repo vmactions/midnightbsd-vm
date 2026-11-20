@@ -106,3 +106,21 @@
             arch: loongarch64
           - release: "4.0.8"
             arch: armv7
+          - release: "4.0.9"
+            arch: aarch64
+          - release: "4.0.9"
+            arch: riscv64
+          - release: "4.0.9"
+            arch: powerpc64
+          - release: "4.0.9"
+            arch: sparc64
+          - release: "4.0.9"
+            arch: ppc64le
+          - release: "4.0.9"
+            arch: s390x
+          - release: "4.0.9"
+            arch: i386
+          - release: "4.0.9"
+            arch: loongarch64
+          - release: "4.0.9"
+            arch: armv7
